@@ -28,3 +28,13 @@ CREATE TABLE IF NOT EXISTS track_list(
 	track_name VARCHAR(80) NOT NULL,
 	track_time VARCHAR(80) NOT NULL);
 	
+CREATE TABLE IF NOT EXISTS collections(
+	ID SERIAL PRIMARY KEY,
+	collection_name VARCHAR(80) NOT NULL,
+	release_date  DATE);
+							
+CREATE TABLE IF NOT EXISTS collection_track(
+	ID SERIAL PRIMARY KEY,
+	collection_id INTEGER NOT NULL REFERENCES collections(id),
+	album_id integer not null references albums(id),
+	track_id integer not null references track_list(id));
