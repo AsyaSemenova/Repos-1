@@ -36,5 +36,5 @@ CREATE TABLE IF NOT EXISTS collections(
 CREATE TABLE IF NOT EXISTS collection_track(
 	ID SERIAL PRIMARY KEY,
 	collection_id INTEGER NOT NULL REFERENCES collections(id),
-	album_id integer not null references albums(id),
-	track_id integer not null references track_list(id));
+	album_id integer NOT NULL REFERENCES albums(id),
+	track_id integer NOT NULL REFERENCES track_list(id));
